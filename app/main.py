@@ -1,6 +1,17 @@
-def main():
-    print("Hello from fastapi-experment!")
+from fastapi import FastAPI
+
+
+app = FastAPI()
+
+
+@app.get("/")
+async def read_root():
+    return {"Hello": "World"}
+
+@app.get('/health')
+async def health_check():
+    return {"status": "healthy"}
 
 
 if __name__ == "__main__":
-    main()
+    app.run(host="0.0.0.0", port=8000)
