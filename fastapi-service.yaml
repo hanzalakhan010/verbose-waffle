@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fastapi-service
+spec:
+  selector:
+    app: fastapi
+  ports:
+    - protocol: TCP
+      port: 80         # Port you'll call from outside
+      targetPort: 8000 # Port inside your container
+  type: LoadBalancer   # Tells Minikube to give you an external entry point
