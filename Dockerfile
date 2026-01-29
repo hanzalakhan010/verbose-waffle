@@ -19,7 +19,7 @@ COPY pyproject.toml uv.lock ./
 
 
 RUN uv pip install --system --no-cache -r pyproject.toml
-ENV PATH="/app/.venv/bin:$PATH"
+ENV PATH="/.venv/bin:$PATH"
 
 COPY ./app /app/app/
 
