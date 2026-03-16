@@ -15,10 +15,11 @@ def test_db():
     try:
         conn = psycopg2.connect(DATABASE_URL)
         conn.close()
-        return {"status": "connected to postgres!"}
+        return {"status": f"connected to postgres! database url: {DATABASE_URL}"}
     except Exception as e:
         print(traceback.format_exc())
         raise HTTPException(status_code=500, detail=str(e))
+    
 @app.get("/")
 async def read_root():
     return {"Hello": "World"}
